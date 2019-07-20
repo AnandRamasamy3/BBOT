@@ -3,9 +3,12 @@ from pygame.locals import *
 from math import *
 
 sys_font=pygame.font.SysFont('Calibri',14,bold=True,italic=False)
-current_directory=os.getcwd().replace(chr(92),chr(47))
-temp_list=current_directory.split(":",2)
-current_directory=temp_list[0]+":/"+temp_list[1]
+try:
+    current_directory=os.getcwd().replace(chr(92),chr(47))
+    temp_list=current_directory.split(":",2)
+    current_directory=temp_list[0]+":/"+temp_list[1]
+except:
+    current_directory=os.getcwd()
 img1=pygame.image.load(current_directory+'/src/music/images/music.jpg')
 img1=pygame.transform.scale(img1,(219,73))
 
