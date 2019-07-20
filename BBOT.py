@@ -19,9 +19,12 @@ surface=pygame.display.set_mode((1000,600),0,32)
 pygame.display.set_caption('BBOT')
 
 sys_font=pygame.font.SysFont('Calibri',10,bold=True,italic=False)
-current_directory=os.getcwd().replace(chr(92),chr(47))
-temp_list=current_directory.split(":",2)
-current_directory=temp_list[0]+":/"+temp_list[1]
+try:
+    current_directory=os.getcwd().replace(chr(92),chr(47))
+    temp_list=current_directory.split(":",2)
+    current_directory=temp_list[0]+":/"+temp_list[1]
+except:
+    current_directory=os.getcwd()
 database_location=current_directory+'/src/database/BBOT.db'
 music=pygame.mixer.music.load(current_directory+"/src/music/music_list/thalaiva.mp3")
 colors=[(255,255,255),(170,0,0),(0,0,255),(0,255,170),(100,50,105),(255,255,0),(0,0,0),(100,100,50),(255,0,0),(0,255,0),(255,0,255),(255,175,100)]
