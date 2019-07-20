@@ -5,9 +5,12 @@ pygame.init()
 
 sys_font=pygame.font.SysFont('Calibri',10,bold=True,italic=False)
 
-current_directory=os.getcwd().replace(chr(92),chr(47))
-temp_list=current_directory.split(":",2)
-current_directory=temp_list[0]+":/"+temp_list[1]
+try:
+    current_directory=os.getcwd().replace(chr(92),chr(47))
+    temp_list=current_directory.split(":",2)
+    current_directory=temp_list[0]+":/"+temp_list[1]
+except:
+    current_directory=os.getcwd()
 img1=pygame.image.load(current_directory+'/src/gallery/img2.jpg')
 img2=pygame.image.load(current_directory+'/src/gallery/img9.jpg')
 img3=pygame.image.load(current_directory+'/src/gallery/img4.jpg')
